@@ -13,9 +13,18 @@
 
 		<?php
 
+if ($_GET["action"]) {
+  $action = $_GET["action"])
+  if ($action == "newuser") {
+    addUser($_GET["name"])
+  elseif($action == "newDescription") {
+    addDescription($_GET["id"],$_GET["desc"])
+  }
+}
+
 			$people = listPeople();
 
-			foreach($people as $person {
+			foreach($people as $person) {
 		?>
 
 		<a href class="bin"><?php echo $person[0] . " || Last Contact: " . $person[1]; ?></a>
