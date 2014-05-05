@@ -2,11 +2,7 @@
 <html>
 	<head>
 		<script src='http://code.jquery.com/jquery.js'></script>
-
-		<style type="text/css">
-			span { width:50%; display:inline-block; }
-    		span.align-right { text-align:right; }
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<title>Remember People</title>
 	</head>
@@ -24,13 +20,14 @@
 			foreach($people as $person) {
 		?>
 
-
-		<a href="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
-			<div>
-				<p>Some inside content</p><br>
-				<p>Lorem Ipsum yatta yatta</p><br>
-			</div>
-			<br>
+		<div class="accordion">
+			<a href class="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
+				<div>
+					<p>Some inside content</p><br>
+					<p>Lorem Ipsum yatta yatta</p>
+				</div>
+				<br>
+		</div>
 
 		<?php } ?>
 
@@ -39,6 +36,8 @@
 
 			// I learn JQuery here
 			$(document).ready(function(){
+
+				$(".bin").next().hide();
 
 				$(".bin").click(function(){
 					$(this).next().slideToggle("fast");
