@@ -3,4 +3,12 @@ span { width:50%; display:inline-block; }
 
 span.align-right { text-align:right; }
 
-div.accordion { width: 66%; background-color: gray;}
+div.accordion { width: 50%; background: #bdc3c7; cursor: pointer; 
+				border: 1px solid #bdc3c7; border-radius: 5px; }
+
+div.accordion:hover { background: #ecf0f1; }
+
+div.accordion:active { background: #ecf0f1; }
+
+
+
