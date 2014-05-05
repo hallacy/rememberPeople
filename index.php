@@ -19,12 +19,12 @@
 
 		<?php
 
-if ($_GET["action"]) {
-  $action = $_GET["action"])
+if ($_GET["action"] != null) {
+  $action = $_GET["action"];
   if ($action == "newuser") {
-    addUser($_GET["name"])
-  elseif($action == "newDescription") {
-    addDescription($_GET["id"],$_GET["desc"])
+    addUser($_GET["name"]);
+  } elseif($action == "newDescription") {
+    addDescription($_GET["id"],$_GET["desc"]);
   }
 }
 
@@ -36,7 +36,11 @@ if ($_GET["action"]) {
 
 		<a href="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
 			<div>
-				<p>Some inside content</p><br>
+               <form>
+  New Event: <input type="textarea" name="desc"/>
+  <input type="submit" value="submit"/>
+  <input type="hidden" name="action" value="newDescription"/>
+</form>
 				<p>Lorem Ipsum yatta yatta</p><br>
 			</div>
 			<br>
@@ -58,7 +62,11 @@ if ($_GET["action"]) {
 			});
 
 		</script>
-
+<form>
+  <input type="hidden" name="action" value="newUser"/>
+  <input type="text" name="name"/>
+  <input type="submit" value="submit"/>
+</form>
 
 	</body>
 
