@@ -15,19 +15,32 @@
 
 		<?php
 
+if (array_key_exists("action", $_GET)) {
+  $action = $_GET["action"];
+  if ($action == "newUser") {
+    addPerson($_GET["name"]);
+  } elseif($action == "newDescription") {
+    addDescription($_GET["id"],$_GET["desc"]);
+  }
+}
+
 			$people = listPeople();
 
 			foreach($people as $person) {
 		?>
 
-		<div class="accordion">
-			<a href class="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
-				<div>
-					<p>Some inside content</p><br>
-					<p>Lorem Ipsum yatta yatta</p>
-				</div>
-				<br>
-		</div>
+	<div class="accordion">
+	  <a href class="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
+	<div>
+        <form>
+          New Event: <input type="textarea" name="desc"/>
+          <input type="submit" value="submit"/>
+          <input type="hidden" name="action" value="newDescription"/>
+        </form>
+	<p>Lorem Ipsum yatta yatta</p><br>
+	</div>
+	</div>
+	<br>
 
 		<?php } ?>
 
@@ -48,7 +61,11 @@
 			});
 
 		</script>
-
+<form>
+  <input type="hidden" name="action" value="newUser"/>
+  <input type="text" name="name"/>
+  <input type="submit" value="submit"/>
+</form>
 
 	</body>
 
