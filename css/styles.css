@@ -10,5 +10,5 @@ div.accordion:hover { background: #ecf0f1; }
 
 div.accordion:active { background: #ecf0f1; }
 
-
+a.bin { text-decoration: none; color: black;}
 

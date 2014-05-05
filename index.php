@@ -62,11 +62,14 @@ if (array_key_exists("action", $_GET)) {
 			});
 
 		</script>
-<form>
-  <input type="hidden" name="action" value="newUser"/>
-  <input type="text" name="name"/>
-  <input type="submit" value="submit"/>
-</form>
+
+
+	<h2>Add a new person:</h2>	
+	<form>
+	  <input type="hidden" name="action" value="newUser"/>
+	  <input type="text" name="name"/>
+	  <input type="submit" value="submit"/>
+	</form>
 
 	</body>
 
