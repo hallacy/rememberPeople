@@ -38,6 +38,15 @@ if (array_key_exists("action", $_GET)) {
           <input type="hidden" name="id" value=<?=$id?> />
           <input type="hidden" name="action" value="newDescription"/>
         </form>
+        <br>
+        <h3>Past Interactions</h3>
+        <?php foreach($person[2] as $event) { ?>
+        <div>Date: <?php echo $event[0]; ?>
+        <p>Description: <?php echo $event[1]; ?></p>
+        </div>
+
+        <?php } ?>
+
 	</div>
 	</div>
 	<br>
