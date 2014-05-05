@@ -16,10 +16,10 @@ function addPerson($name) {
 
 function addDescription($id, $desc) {
   $mysqli = new mysqli("localhost", "root", "raspberry", "rememberPeople");
-  $query = "INSERT INTO interactions (id,time_stamp,description)  VALUES ";
-  $query .= $id . ", now(),\'" . $desc . "\')";
+  $query = "INSERT INTO interactions (people_id,time_stamp,description)  VALUES ";
+  $query .= "(" . $id . ", now(), '" . $desc . "')";
   if (!$mysqli->query($query)) {
-    return "Failed: " . $mysqli->error ;
+    echo "Failed: " . $mysqli->error ;
   }
   return; 
 }

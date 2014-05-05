@@ -26,7 +26,7 @@ if (array_key_exists("action", $_GET)) {
 
 			$people = listPeople();
 
-			foreach($people as $person) {
+			foreach($people as $id=>$person) {
 		?>
 
 	<div class="accordion">
@@ -35,6 +35,7 @@ if (array_key_exists("action", $_GET)) {
         <form>
           New Event: <input type="textarea" name="desc"/>
           <input type="submit" value="submit"/>
+          <input type="hidden" name="id" value=<?=$id?> />
           <input type="hidden" name="action" value="newDescription"/>
         </form>
 	<p>Lorem Ipsum yatta yatta</p><br>
