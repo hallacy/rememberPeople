@@ -2,11 +2,7 @@
 <html>
 	<head>
 		<script src='http://code.jquery.com/jquery.js'></script>
-
-		<style type="text/css">
-			span { width:50%; display:inline-block; }
-    		span.align-right { text-align:right; }
-		</style>
+		<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 		<title>Remember People</title>
 	</head>
@@ -19,10 +15,10 @@
 
 		<?php
 
-if ($_GET["action"] != null) {
+if (array_key_exists("action", $_GET)) {
   $action = $_GET["action"];
-  if ($action == "newuser") {
-    addUser($_GET["name"]);
+  if ($action == "newUser") {
+    addPerson($_GET["name"]);
   } elseif($action == "newDescription") {
     addDescription($_GET["id"],$_GET["desc"]);
   }
@@ -33,17 +29,18 @@ if ($_GET["action"] != null) {
 			foreach($people as $person) {
 		?>
 
-
-		<a href="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
-			<div>
-               <form>
-  New Event: <input type="textarea" name="desc"/>
-  <input type="submit" value="submit"/>
-  <input type="hidden" name="action" value="newDescription"/>
-</form>
-				<p>Lorem Ipsum yatta yatta</p><br>
-			</div>
-			<br>
+	<div class="accordion">
+	  <a href class="bin"><span><?php echo $person[0]; ?></span><span class="align-right">Last Contact: <?php echo $person[1]; ?></span></a>
+	<div>
+        <form>
+          New Event: <input type="textarea" name="desc"/>
+          <input type="submit" value="submit"/>
+          <input type="hidden" name="action" value="newDescription"/>
+        </form>
+	<p>Lorem Ipsum yatta yatta</p><br>
+	</div>
+	</div>
+	<br>
 
 		<?php } ?>
 
@@ -52,6 +49,8 @@ if ($_GET["action"] != null) {
 
 			// I learn JQuery here
 			$(document).ready(function(){
+
+				$(".bin").next().hide();
 
 				$(".bin").click(function(){
 					$(this).next().slideToggle("fast");
