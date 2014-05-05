@@ -1,0 +1,1 @@
+An application for keeping in contact with friends and storing the memories you make with them. 
