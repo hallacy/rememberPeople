@@ -38,7 +38,6 @@ if (array_key_exists("action", $_GET)) {
           <input type="hidden" name="id" value=<?=$id?> />
           <input type="hidden" name="action" value="newDescription"/>
         </form>
-	<p>Lorem Ipsum yatta yatta</p><br>
 	</div>
 	</div>
 	<br>

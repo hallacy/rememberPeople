@@ -31,7 +31,13 @@ function listPeople() {
   $res->data_seek(0);
   $data = array();
   while ($row = $res->fetch_assoc()) {
-    $data[$row['id']] = array($row['name'],$row['time_stamp']);
+    $query = "SELECT * FROM interactions WHERE people_id=" . $row['id'];
+    $res2 = $mysqli->query($query);
+    $temp = array();
+    while ($row2 = $res2->fetch_assoc()) {
+      $temp[$row2['id']] = array($row2['time_stamp'],$row2['description']);
+    }
+    $data[$row['id']] = array($row['name'],$row['time_stamp'],$temp);
   }
   return $data;
 }
